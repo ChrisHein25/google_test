@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+ Google Test
+{% endblock %}
+
+{% block navbar %}
+  {% include '_navbar.html' %}
+{% endblock %}
+
+{% block content %} <!-- the body of the HTML template -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="alert alert-{{ category }}">{{message}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+  {% block sub_content %} <!-- the replaced body of the HTML page -->
+  {% endblock %}
+{%endblock %}
