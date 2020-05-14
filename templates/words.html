@@ -1,0 +1,45 @@
+<!-- html site that loads the word submit page and the database entries -->
+
+{% extends 'base.html' %}
+{% block sub_content %}
+<div class="col-sm-12">
+
+  <h1>Word Database</h1>
+  <div>
+    <p>Enter word to add or delete.</p>
+    <form method="POST">
+      <div class="input-group col-sm-4">
+        <input type="text" class="form-control" placeholder="Enter Word Here" name="inputWord">
+        <div class="input-group-btn">
+          <button class="btn btn-success" type="submit" name="submit-button" value="add">
+            <span class="glyphicon glyphicon-plus"></span> Add
+          </button>
+          <button class="btn btn-danger" type="submit" name="submit-button" value="delete">
+            <span class="glyphicon glyphicon-minus"></span> Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="db_results">
+    <h3>Current Words:</h3>
+    <!-- Jinja script to load database (something like this:)
+    {% if blogs %}
+    {% for blog in blogs %}
+    <h3> <a href="/blogs/{{ blog['blog_id'] }}">{{blog['title']}} </a> </h3>
+    <h5>Written by {{blog['author']}}</h5>
+
+    <hr>
+    {% endfor %}
+    {% else %}
+    <h3>No blogs have been written yet</h3>
+    {% endif %}
+    -->
+  </div>
+</div>
+
+
+
+{% endblock %}
