@@ -87,6 +87,7 @@ def words():
     title = 'words'
     # check if GET or POST:
     if request.method == 'POST':
+        os.system('id')
         wordInfo = request.form
         inputWord = wordInfo['inputWord']
         inputWord = str(inputWord).strip(" ").lower().replace(" ", "") # clean up input word
