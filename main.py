@@ -2,7 +2,6 @@ from flask import Flask, flash, render_template, request, session
 from flask_bootstrap import Bootstrap
 import yaml
 import os
-import sqlite3
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -10,7 +9,7 @@ Bootstrap(app)
 # generate random secret key so flash can run
 app.config['SECRET_KEY'] = os.urandom(24)
 
-#SQLite "Database" (simple file)
+# SQL Database
 
 
 @app.route('/')
@@ -37,13 +36,6 @@ def words():
         #create variable that holds database entries and pass to html page
         return render_template('words.html')
     #create variable that holds database entries and pass to html page
-    conn = sqlite3.connect('employee.db')
-    c = conn.cursor()
-    c.execute("SELECT * FROM employees")
-    employeeList = c.fetchall()
-    print(employeeList)
-    testVar = "Hello"
-    conn.close()
     return render_template('words.html', testVar = testVar, employeeList = employeeList)
 
 if __name__ == '__main__':

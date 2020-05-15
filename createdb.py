@@ -1,3 +1,5 @@
+## ONLY RUN FOR SQLite3 USE
+
 import sqlite3
 
 conn = sqlite3.connect('employee.db')
