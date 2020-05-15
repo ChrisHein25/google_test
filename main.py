@@ -12,16 +12,16 @@ Bootstrap(app)
 app.config['SECRET_KEY'] = os.urandom(24)
 
 # SQL Database Functions
-DATABASE = 'database.db'
+DATABASE = './database.db'
 
 def addWord(word):
     con = sqlite3.connect(DATABASE)
     cur = con.cursor()
-    cur.execute("SELECT COUNT(*) FROM words WHERE word=?", (word,))
+    cur.execute("SELECT COUNT(*) FROM words WHERE word=?;", (word,))
     existingCount = cur.fetchone()[0]
     if existingCount == 0:
         print(existingCount)
-        cur.execute("INSERT INTO words(word) VALUES(?)", (word,))
+        cur.execute("INSERT INTO words(word) VALUES(?);", (word,))
         con.commit()
         con.close()
         return True
@@ -31,11 +31,11 @@ def addWord(word):
 def deleteWord(word):
     con = sqlite3.connect(DATABASE)
     cur = con.cursor()
-    cur.execute("SELECT COUNT(*) FROM words")
+    cur.execute("SELECT COUNT(*) FROM words;")
     initialCount = cur.fetchone()[0]
-    cur.execute("DELETE FROM words WHERE word=?", (word,))
+    cur.execute("DELETE FROM words WHERE word=?;", (word,))
     con.commit()
-    cur.execute("SELECT COUNT(*) FROM words")
+    cur.execute("SELECT COUNT(*) FROM words;")
     finalCount = cur.fetchone()[0]
     con.close()
     if initialCount == finalCount:
@@ -46,15 +46,15 @@ def deleteWord(word):
 def deleteAll():
     con = sqlite3.connect(DATABASE)
     cur = con.cursor()
-    cur.execute("DELETE FROM words")
-    cur.execute("DELETE FROM SQLITE_SEQUENCE WHERE NAME = 'words'")
+    cur.execute("DELETE FROM words;")
+    cur.execute("DELETE FROM SQLITE_SEQUENCE WHERE NAME = 'words';")
     con.commit()
     con.close()
 
 def printWords(): # prints entire table to command line
     con = sqlite3.connect(DATABASE)
     cur = con.cursor()
-    cur.execute("SELECT * FROM words")
+    cur.execute("SELECT * FROM words;")
     words = cur.fetchall()
     con.close()
     print(words)
@@ -63,7 +63,7 @@ def printWords(): # prints entire table to command line
 def getWordTable():
     con = sqlite3.connect(DATABASE)
     cur = con.cursor()
-    cur.execute("SELECT * FROM words")
+    cur.execute("SELECT * FROM words;")
     wordTable = cur.fetchall()
     con.close()
     return wordTable
@@ -118,4 +118,4 @@ def words():
     return render_template('words.html', wordTable = wordTable, title=title)
 
 if __name__ == '__main__':
-    app.run(ssl_context=('cert.pem', 'key.pem'), debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
