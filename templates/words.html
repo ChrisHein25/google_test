@@ -3,11 +3,9 @@
 {% extends 'base.html' %}
 {% block sub_content %}
 <div class="col-sm-12">
-
-  <h1>Word Database</h1>
-  <div>
-    <p>Enter word to add or delete.</p>
-    <form method="POST">
+  <h1 class="">Word Database</h1>
+    <p>Enter word to add or delete. Valid words are single words including letters and numbers. Duplicate words are not considered valid.</p>
+    <form class="" method="POST">
       <div class="input-group col-sm-4">
         <input type="text" class="form-control" placeholder="Enter Word Here" name="inputWord">
         <div class="input-group-btn">
@@ -19,9 +17,12 @@
           </button>
         </div>
       </div>
+      <div class="col-sm-12">&nbsp;</div>
+      <button class="btn btn-danger" type="submit" name="submit-button" value="delete_all">Delete All</button>
     </form>
-  </div>
+</div>
 
+<div class="col-sm-12">
 
   <div class="db_results col-sm-2">
 
@@ -31,6 +32,12 @@
     {% if wordTable %}
     <div class="">
       <table class="table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Word</th>
+          </tr>
+        </thead>
         {% for row in wordTable %}
         <tr>
           <td>{{ loop.index }}</td>
