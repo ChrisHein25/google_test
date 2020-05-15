@@ -23,16 +23,27 @@
   </div>
 
 
-  <div class="db_results">
+  <div class="db_results col-sm-2">
+
     <h3>Current Words:</h3>
+
     <!-- Jinja script to load database on html page-->
     {% if wordTable %}
-    {% for row in wordTable %}
-    <p> Word #{{ row[0] }}: {{ row[1] }}</p>
-    {% endfor %}
+    <div class="">
+      <table class="table">
+        {% for row in wordTable %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>
     {% else %}
     <p>No words in database! Please add a word.</p>
     {% endif %}
+
   </div>
 </div>
 
