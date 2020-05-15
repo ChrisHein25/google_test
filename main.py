@@ -118,4 +118,4 @@ def words():
     return render_template('words.html', wordTable = wordTable, title=title)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
