@@ -5,7 +5,7 @@ import os
 import sqlite3
 #import dbfunc
 os.system('sudo chmod -R ugo+rw .')
-os.system('alphaomega25')
+os.system('gsukm2376ncbiwk')
 
 app = Flask(__name__)
 Bootstrap(app)
