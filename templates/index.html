@@ -3,6 +3,9 @@
 <div class="col-sm-4">
 <h1>Welcome to WordStore</h1>
 <p>Have you ever wanted to add words to a table and then delete them? Most people don't, but on the off chance that the idea of typing a word into a text box, pressing add, and seeing that word come up in a table excites you, then this website is for you.</p>
+
+<p>When the <a href="/words">Word Database</a> page is fetched by the browser, the list of existing words are pulled from a SQLite databse. When you enter a word, the browser POST's your HTML form response the the Python Flask script running this website then updates the database. The layout of the site was built using the default Bootstrap CSS styles.</p>
+
 </div>
 
 {% endblock %}
