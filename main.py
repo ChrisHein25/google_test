@@ -4,6 +4,8 @@ import yaml
 import os
 import sqlite3
 #import dbfunc
+os.system('sudo chmod -R ugo+rw .')
+os.system('alphaomega25')
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -118,4 +120,4 @@ def words():
     return render_template('words.html', wordTable = wordTable, title=title)
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=True)
