@@ -25,18 +25,14 @@
 
   <div class="db_results">
     <h3>Current Words:</h3>
-    <!-- Jinja script to load database (something like this:)
-    {% if blogs %}
-    {% for blog in blogs %}
-    <h3> <a href="/blogs/{{ blog['blog_id'] }}">{{blog['title']}} </a> </h3>
-    <h5>Written by {{blog['author']}}</h5>
-
-    <hr>
+    <!-- Jinja script to load database (something like this:) -->
+    {% if employeeList %}
+    {% for employee in employeeList %}
+    <p> {{ employee[0] }} {{ employee[1] }}</p>
     {% endfor %}
     {% else %}
-    <h3>No blogs have been written yet</h3>
+    <h3>No employees in database</h3>
     {% endif %}
-    -->
   </div>
 </div>
 
