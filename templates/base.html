@@ -1,20 +1,43 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block head %}
+{{ super() }}
+<style>
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    color: grey;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    border-width: 0;
+    border-radius: 0;
+    border-color: #222;
+    /*letter-spacing: 1px;*/
+  }
+
+</style>
+{% endblock head %}
+
 {% block title %}
-  PointlessApp
+PointlessApp
 {% endblock %}
 
 {% block navbar %}
-  {% include '_navbar.html' %}
+{% include '_navbar.html' %}
 {% endblock %}
 
 {% block content %} <!-- the body of the HTML template -->
-  {% include "_messages.html" %}
+{% include "_messages.html" %}
 
-  {% block sub_content %} <!-- the replaced body of the HTML page -->
-  {% endblock %}
-{%endblock %}
+{% block sub_content %} <!-- the replaced body of the HTML page -->
+{% endblock %}
 
-<footer>
-  Chris Hein 2020
+<footer class="footer text-center">
+  Chris Hein, 2020
 </footer>
+{% endblock %}
